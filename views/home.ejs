@@ -1,37 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>Home Page</title>
-</head>
-<body>
-    <header>
-    <div>
-         <a href="http://">PROFILE</a> 
-    </div>
-    <div>
-        <h1>Jokebook</h1>
-    </div>
-      <div>
-        <% if(user) { %>
-       <a href="/logout">LOGOUT</a> 
-        <% } else { %>
-        <a href="/auth/google">LOGIN</a>
-         <% } %>
-    </div>
-</header>
-<main>
+<%- include('../views/partials/header') %>
+
     <div>
         <input class="status" type="text" value="TELL US A JOKE">
     </div> 
-    <div>
-        <button type="submit">POST</button> 
+    <div class="newPost">
+        <button id="post" type="submit">POST</button> 
     </div> 
-</main>
-<footer>
-    JB created with ☮️ and &hearts; by Chinwe' Watkins
-</footer>
-</body>
-</html>
+    <div class="display">
+        <div></div>
+    </div>
+
+<%- include('../views/partials/footer') %>

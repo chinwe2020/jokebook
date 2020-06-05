@@ -43,11 +43,32 @@ main {
 .status {
   height: 100px;
   width: 900px;
+  border: solid black 7px;
+}
+
+.newPost {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  width: auto;
+  padding: 10px;
+}
+
+#post {
+  font-size: 25px;
 }
 
 input {
   text-align: center;
   text-overflow: ellipsis;
+}
+
+.display {
+  display: flex;
+  height: 500px;
+  width: 900px;
+  border: solid black 3px;
+
 }
 
 footer {
