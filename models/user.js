@@ -10,18 +10,16 @@ const commentSchema = new mongoose.Schema({
 
 const postSchema = new mongoose.Schema({
     text: String,
-    others: mongoose.Schema.Types.Mixed
+    // others: mongoose.Schema.Types.Mixed
 }, {
     timestamps: true
 });
 
-const userSchema = ({
+const userSchema = new Schema({
     googleId: String,
     name: String,
     email: String,
     avatar: String,
-    posts: [postSchema],
-    comments: [commentSchema]
 }, {
     timestamps: true
 });

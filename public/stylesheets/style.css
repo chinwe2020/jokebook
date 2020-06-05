@@ -1,8 +1,66 @@
 body {
+  display: grid;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: blueviolet;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(225, 145, 176);
+}
+
+h1 {
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-size: 70px;
+color: wheat;
 }
 
 a {
-  color: #00B7FF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  border: solid black 2px;
+  border-radius: 4em;
+  padding: 10px;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: solid black 3px;
+  height: 75vh;
+  padding: 20px;
+}
+
+.status {
+  height: 100px;
+  width: 900px;
+}
+
+input {
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+footer {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+background-color: rgb(225, 145, 176);
+}
+
+
+
+
+
+
+

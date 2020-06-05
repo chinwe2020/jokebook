@@ -1,9 +1,27 @@
-var express = require('express');
-var router = express.Router();
+var router = require('express').Router();
+var passport = require('passport');
 
 /* GET home page. */
-router.get('/jokebook', function(req, res, next) {
-  res.render('Home', { title: 'Home Page' });
+router.get('/', function(req, res) {
+  res.render('Home', { title: 'Home Page', user:req.user });
+});
+
+router.get('/auth/google', passport.authenticate(
+  'google',
+  { scope: ['profile', 'email'] }
+));
+
+router.get('/oauth2callback', passport.authenticate(
+  'google',
+  {
+    successRedirect : '/',
+    failureRedirect : '/'
+  }
+));
+
+router.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
 });
 
 module.exports = router;
