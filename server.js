@@ -11,8 +11,10 @@ require('dotenv').config();
 require('./config/database');
 require('./config/passport');
 
-var homeRouter = require('./routes/home');
+var homeRouter = require('./routes/homePage');
+var loginRouter = require('./routes/home')
 var usersRouter = require('./routes/users');
+var profilesRouter = require('./routes/profiles')
 
 var app = express();
 
@@ -36,7 +38,9 @@ app.use(passport.session());
 app.use(methodOverride('_method'));
 
 app.use('/', homeRouter);
+app.use('/', loginRouter)
 app.use('/users', usersRouter);
+app.use('/profile', profilesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
