@@ -12,7 +12,7 @@ require('./config/database');
 require('./config/passport');
 
 var homeRouter = require('./routes/homePage');
-var loginRouter = require('./routes/home')
+var loginRouter = require('./routes/login')
 var usersRouter = require('./routes/users');
 var profilesRouter = require('./routes/profiles')
 
