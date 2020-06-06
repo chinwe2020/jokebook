@@ -1,14 +1,15 @@
 var Profile = require('../models/user');
 
 module.exports = {
-    create,
-    new: newUser
+    create
 }
 
 function create(req,res) {
-
+    res.render('/profile', {
+        users,
+        name: req.query.name,
+        sortKey,
+        user: req.user
+      });
 }
 
-function newUser(req,res) {
-
-}
