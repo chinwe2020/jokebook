@@ -6,7 +6,13 @@ Wireframe
 
 
 ## Technologies
-
+-HTML
+-CSS
+-JS
+-Express
+-Node.js
+-mongoDb
+-mongooseDb
 
 
 ## Getting Started

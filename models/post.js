@@ -1,17 +1,23 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-  
-const postSchema = new mongoose.Schema({
-    text: String,
-}, {
-    timestamps: true
-});
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-const commentSchema = new mongoose.Schema({
-    text: String
+var commentSchema = new Schema({
+    text: String,
+    createdBy: {type:Schema.Types.ObjectId, ref: 'User'}
 }, {
     timestamps: true
+}); 
+
+var postSchema = new mongoose.Schema({
+    text: String,
+    createdBy: {type:Schema.Types.ObjectId, ref: 'User'},
+    date: {type: Date, default: Date.now}
+},
+{
+    comment:[commentSchema]
 });
 
 module.exports = mongoose.model('Post', postSchema);
-module.exports = mongoose.model('Comment', commentSchema);
+
+
+

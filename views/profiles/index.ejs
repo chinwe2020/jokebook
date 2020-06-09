@@ -1,0 +1,25 @@
+<%- include('../views/partials/header') %>
+
+<div class="profile">
+    <% profile.forEach(function(user){ %>
+        <div class="photo">
+            <% if (user.avatar) { %>
+                <img class="circle responsive-img" src="<%= user.avatar %>"
+            <% } else { %>
+                <i class="small material-icons">perm_identity</i>
+            <% } %>
+
+        </div>
+    <% }) %>
+    <div class="info">
+        <form action="user">
+            <label>Name:</label>
+            <%= profile.name %>
+            <label>Email:</label>
+            <%= profile.email %>
+        </form>
+    </div>
+    <div class="Posts"></div>
+</div>
+
+<%- include('../views/partials/footer') %>

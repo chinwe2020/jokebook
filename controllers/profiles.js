@@ -1,15 +1,19 @@
 var Profile = require('../models/user');
 
 module.exports = {
-    create
+    index,
+    create,
 }
+
 
 function create(req,res) {
-    res.render('/profile', {
-        users,
-        name: req.query.name,
-        sortKey,
-        user: req.user
-      });
+    Profile.create(req.body, function() {
+        res.render(`/profile`)
+    });
 }
 
+function index(req,res) {
+    Profile.find({}, function(err, profiles) {
+        res.render('/profiles/index', {title: 'Profile', profiles});
+    });
+}

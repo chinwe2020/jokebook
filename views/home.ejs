@@ -1,13 +1,24 @@
 <%- include('../views/partials/header') %>
 
-    <div>
-        <input class="status" type="text" value="TELL US A JOKE">
-    </div> 
-    <div class="newPost">
-        <button id="post" type="submit">POST</button> 
-    </div> 
-    <div class="display">
-        <div></div>
-    </div>
 
+<form action="/posts" method="POST">
+<div>
+    <input class="status" type="text" name="text" value="TELL US A JOKE">
+</div> 
+<div class="newPost">
+    <button id="post" type="submit">POST</button> 
+</div> 
+</form>
+<div class="displayPosts">
+    <% posts.forEach(function(p) { %>
+        <h3><%= p.text %></h3>
+        <input class="like" type="button" value="LIKE">
+        <form action="/posts/<%=p.id%>?_method=DELETE" class="delete-form" method="POST">
+            <button type="submit">X</button>
+          </form>
+   <% }) %>
+</div>
+
+                    
 <%- include('../views/partials/footer') %>
+                        

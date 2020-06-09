@@ -14,7 +14,14 @@ passport.use(new GoogleStrategy({
         if (err) return cb(err);
         if (user) {
             // returning user
+            if(user.avatar) {
             return cb(null, user);
+            } else {
+                user.avatar = profile.photos[0].value;
+                user.save(function(err) {
+                    return cb(null, user);
+                });
+            }
         } else {
             // new user
         const newUser = new User({
