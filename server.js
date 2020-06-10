@@ -12,9 +12,10 @@ require('./config/database');
 require('./config/passport');
 
 var homeRouter = require('./routes/home');
-var indexRouter = require('./routes/index')
+var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var profilesRouter = require('./routes/profiles')
+var detailsRouter = require('./routes/details');
+var commentsRouter = require('./routes/comments')
 
 var app = express();
 
@@ -40,7 +41,8 @@ app.use(methodOverride('_method'));
 app.use('/', homeRouter);
 app.use('/', indexRouter)
 app.use('/', usersRouter);
-app.use('/', profilesRouter);
+app.use('/', detailsRouter);
+app.use('/', commentsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

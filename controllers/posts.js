@@ -2,9 +2,19 @@ const Post = require('../models/post')
 
 module.exports = {
     index,
-    new: newPost,
     create,
-    delete: deletePost
+    delete: deletePost,
+    show
+}
+
+function show(req,res) {
+    Post.findById(req.params.id).populate('createdBy').exec(function(err, post) {
+        console.log(err, post)
+        res.render('details', {
+            user: req.user,
+            post
+        })
+    })
 }
 
 function index(req, res) {
@@ -16,16 +26,13 @@ function index(req, res) {
     })
   }
 
-function newPost(req,res) {
-    req.user.posts.push(req.body);
-    req.user.save(function(err) {
-      res.redirect('/');
-    });
-  }
 
 function create (req,res) {
-    Post.create(req.body, function() {
-        res.redirect('/')
+    Post.create(req.body, function(err,post) {
+        post.createdBy = req.user.id;
+        post.save(function() {
+            res.redirect('/')
+        })
     })
 }
 

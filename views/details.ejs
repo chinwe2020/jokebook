@@ -1,0 +1,27 @@
+<%- include('./partials/header') %>
+
+
+<section id="show-page">
+    <p id="detailPost"><%= post.text %></p>
+    <div>Created By:</div>
+    <div><%= post.createdBy.name %></div>
+    <div>Date Created:</div>
+    <div><%= post.createdAt %></div>
+</section>
+
+<h2>Comments</h2>
+
+<form id="add-comment-form" action="/posts/<%= post.id%>/comments" method="POST">
+<textarea name="content"></textarea>
+<br>
+<input type="submit" value="Add Comment">
+</form>
+<br>
+<div class="displayComments">
+<% post.comment.forEach(function(c) { %>
+    <p><%= c.text %></p>
+<% }) %>
+ </div>   
+
+
+<%- include('./partials/footer') %>

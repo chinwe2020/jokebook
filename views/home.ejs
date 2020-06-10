@@ -12,7 +12,9 @@
 <div class="displayPosts">
     <% posts.forEach(function(p) { %>
         <h3><%= p.text %></h3>
-        <input class="like" type="button" value="LIKE">
+        <div><%= p.createdBy.name %></div>
+        <div><%= p.createdAt %></div>
+       <a id="see-more" href="/posts/<%= p.id %>/details">See More</a>
         <form action="/posts/<%=p.id%>?_method=DELETE" class="delete-form" method="POST">
             <button type="submit">X</button>
           </form>

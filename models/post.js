@@ -11,10 +11,10 @@ var commentSchema = new Schema({
 var postSchema = new mongoose.Schema({
     text: String,
     createdBy: {type:Schema.Types.ObjectId, ref: 'User'},
-    date: {type: Date, default: Date.now}
+    comment: [commentSchema]
 },
 {
-    comment:[commentSchema]
+    timestamps: true
 });
 
 module.exports = mongoose.model('Post', postSchema);
