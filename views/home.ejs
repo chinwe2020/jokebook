@@ -3,7 +3,7 @@
 
 <form action="/posts" method="POST">
 <div>
-    <input class="status" type="text" name="text" value="TELL US A JOKE">
+    <input class="status" type="text" name="text" value="MAKE US LAUGH">
 </div> 
 <div class="newPost">
     <button id="post" type="submit">POST</button> 
@@ -18,7 +18,7 @@
         <br>
         <div>
             <a id="see-more" href="/posts/<%= p.id %>/details">See More</a>
-            <a href="/posts/<%= p.id %>/edit">edit</a>
+            <a id="edit" href="/posts/<%= p.id %>/edit">edit</a>
             <form action="/posts/<%=p.id%>?_method=DELETE" class="delete-form" method="POST">
                 <button type="submit">X</button>
             </form>

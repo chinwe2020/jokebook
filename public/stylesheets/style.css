@@ -43,6 +43,10 @@ a {
   border-radius: 4em;
 }
 
+#edit {
+  color: white;
+}
+
 .info {
   font-size: 15px;
 }
