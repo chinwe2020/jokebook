@@ -107,10 +107,30 @@ input {
 }
 
 .displayComments {
-height: 50vh;
+height: auto;
 width: 90vw;
 border: solid gray 5px;
 padding: 20px;
+}
+
+h2 {
+  color: white;
+}
+
+.displayEdit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid gray 5px;
+  height: 50vh;
+  width: 90vw
+}
+
+#editPost{
+  height: 100px;
+  width: 600px;
+  border: solid black 7px;
 }
 
 footer {
