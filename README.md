@@ -3,6 +3,7 @@
 ## Screenshots
 
 Wireframe
+!()
 
 
 ## Technologies
@@ -12,12 +13,21 @@ Wireframe
 -Express
 -Node.js
 -mongoDb
--mongooseDb
+-Mongoose
 
 
 ## Getting Started
 
+-Project Planning
 https://trello.com/b/ZYaefpRf/jokebookproject2
 
+-Deploy Project
+https://jokebook-2.herokuapp.com/
+
 ## Future Enhancements
+
+-add like button
+-add profile page
+-add avatar to profile, posts, and comments
+-responsive design for mobile use
 

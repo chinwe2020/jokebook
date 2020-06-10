@@ -3,8 +3,26 @@ const Post = require('../models/post')
 module.exports = {
     index,
     create,
+    update,
     delete: deletePost,
-    show
+    show,
+    edit
+}
+
+function edit(req, res) {
+    Post.findById(req.params.id).populate('createdBy').exec(function(err, post) {
+        res.render('edit', {
+        user: req.user,
+            post
+        });
+    })
+}
+
+function update(req,res) {
+    Post.update(req.params.id, newPost);
+    newPost.save( function () {
+        res.redirect(`/`);
+    })
 }
 
 function show(req,res) {

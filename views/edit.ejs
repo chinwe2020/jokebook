@@ -1,0 +1,9 @@
+<%- include('./partials/header') %>
+
+<h2>Edit Post</h2>
+<form action="/posts/<%= post.id %>/edit?_method=PUT" method="POST" autocomplete="off">
+    <input type="text" name="post" value="<%= post.text %>">
+  <button type="submit">Update Post</button>
+</form>
+
+<%- include('./partials/footer') %>

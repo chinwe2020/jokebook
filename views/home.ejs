@@ -10,15 +10,21 @@
 </div> 
 </form>
 <div class="displayPosts">
+    <div class="post">
     <% posts.forEach(function(p) { %>
         <h3><%= p.text %></h3>
-        <div><%= p.createdBy.name %></div>
-        <div><%= p.createdAt %></div>
-       <a id="see-more" href="/posts/<%= p.id %>/details">See More</a>
-        <form action="/posts/<%=p.id%>?_method=DELETE" class="delete-form" method="POST">
-            <button type="submit">X</button>
-          </form>
+        <div class="info"><%= p.createdBy.name %></div>
+        <div class="info"><%= p.createdAt %></div>
+        <br>
+        <div>
+            <a id="see-more" href="/posts/<%= p.id %>/details">See More</a>
+            <a href="/posts/<%= p.id %>/edit">edit</a>
+            <form action="/posts/<%=p.id%>?_method=DELETE" class="delete-form" method="POST">
+                <button type="submit">X</button>
+            </form>
+        </div>
    <% }) %>
+    </div>
 </div>
 
                     

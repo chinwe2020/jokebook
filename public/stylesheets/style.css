@@ -37,6 +37,14 @@ a {
 #see-more{
   color: white;
   background-color: violet;
+  width: 90px;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 4em;
+}
+
+.info {
+  font-size: 15px;
 }
 
 main {
@@ -45,7 +53,7 @@ main {
   justify-content: flex-start;
   align-items: center;
   border: solid black 3px;
-  height: 75vh;
+  height: auto;
   padding: 20px;
 }
 
@@ -64,9 +72,11 @@ main {
 }
 
 .displayPosts{
+  display: flex;
+  flex-direction: column;
   border: solid grey 5px;
   width: 90vw;
-  height: 55vh;
+  height: auto;
   padding: 20px;
 }
 
