@@ -11,7 +11,7 @@ var commentSchema = new Schema({
 var postSchema = new mongoose.Schema({
     text: String,
     createdBy: {type:Schema.Types.ObjectId, ref: 'User'},
-    comment: [commentSchema]
+    comments: [commentSchema]
 },
 {
     timestamps: true

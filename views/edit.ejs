@@ -1,8 +1,8 @@
 <%- include('./partials/header') %>
 <div class="displayEdit">
 <h2>Edit Post</h2>
-<form action="/posts/<%= post.id %>/edit?_method=PUT" method="POST" autocomplete="off">
-    <input id="editPost" type="text" name="post" value="<%= post.text %>">
+<form action="/posts/<%= post.id %>?_method=PUT" method="POST" autocomplete="off">
+    <input id="editPost" type="text" name="text" value="<%= post.text %>">
  <div>
   <button type="submit">Update Post</button>
 </div>

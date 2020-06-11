@@ -19,10 +19,9 @@ function edit(req, res) {
 }
 
 function update(req,res) {
-    Post.update(req.params.id, newPost);
-    newPost.save( function () {
+    Post.findByIdAndUpdate(req.params.id, req.body, function(){
         res.redirect(`/`);
-    })
+    });
 }
 
 function show(req,res) {

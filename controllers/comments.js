@@ -1,4 +1,4 @@
-const Comment = require('../models/post');
+const Post = require('../models/post');
 
 module.exports = {
   create,
@@ -6,16 +6,17 @@ module.exports = {
 };
 
 function deleteComment(req,res) {
-  Comment.findByIdAndDelete(req.params.id, function() {
+  Post.findByIdAndDelete(req.params.id, function() {
       res.redirect('/')
   })
 }
 
 function create (req,res) {
-  Comment.create(req.body, function(err, comment) {
-      comment.createdBy = req.user.id;
-      comment.save(function() {
-          res.redirect('/posts/:id/details')
+  Post.findById(req.params.id, function(err, post) {
+    req.body.createdBy = req.user._id;
+    post.comments.push(req.body)
+    post.save(function() {
+          res.redirect(`/posts/${req.params.id}/details`)
       })
   })
 }
