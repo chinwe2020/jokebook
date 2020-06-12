@@ -1,6 +1,4 @@
 <%- include('../views/partials/header') %>
-
-
 <form action="/posts" method="POST">
 <div>
     <input class="status" type="text" name="text" value="MAKE US LAUGH">
@@ -18,15 +16,14 @@
         <br>
         <div>
             <a id="see-more" href="/posts/<%= p.id %>/details">See More</a>
-            <a id="edit" href="/posts/<%= p.id %>/edit">edit</a>
-            <form action="/posts/<%=p.id%>?_method=DELETE" class="delete-form" method="POST">
-                <button type="submit">X</button>
-            </form>
+            <% if (user && p.createdBy._id.equals(user._id)) { %>
+                <a id="edit" href="/posts/<%= p.id %>/edit">edit</a>
+                <form action="/posts/<%=p.id%>?_method=DELETE" class="delete-form" method="POST">
+                    <button type="submit">X</button>
+                </form>
+            <% } %>
         </div>
    <% }) %>
     </div>
 </div>
-
-                    
 <%- include('../views/partials/footer') %>
-                        

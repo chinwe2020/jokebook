@@ -1,5 +1,4 @@
 const Post = require('../models/post')
-
 module.exports = {
     index,
     create,
@@ -8,22 +7,20 @@ module.exports = {
     show,
     edit
 }
-
 function edit(req, res) {
-    Post.findById(req.params.id).populate('createdBy').exec(function(err, post) {
+    Post.find({_id: req.params.id, createdBy: req.user._id}).populate('createdBy').exec(function(err, [ post ]) {
+        if(!post) return res.redirect('/');
         res.render('edit', {
         user: req.user,
             post
         });
-    })
+    });
 }
-
 function update(req,res) {
     Post.findByIdAndUpdate(req.params.id, req.body, function(){
         res.redirect(`/`);
     });
 }
-
 function show(req,res) {
     Post.findById(req.params.id).populate('createdBy').exec(function(err, post) {
         console.log(err, post)
@@ -33,7 +30,6 @@ function show(req,res) {
         })
     })
 }
-
 function index(req, res) {
     Post.find({}).populate('createdBy').exec(function(err, posts){
         res.render('home', {
@@ -42,19 +38,20 @@ function index(req, res) {
         })
     })
   }
-
-
 function create (req,res) {
     Post.create(req.body, function(err,post) {
-        post.createdBy = req.user.id;
+        post.createdBy = req.user._id;
         post.save(function() {
             res.redirect('/')
         })
     })
 }
-
 function deletePost(req,res) {
-    Post.findByIdAndDelete(req.params.id, function() {
-        res.redirect('/')
-    })
+    Post.findOneAndDelete(
+        {
+            _id: req.params.id, 
+            createdBy: req.user._id
+        }, function(err, post) {
+            res.redirect('/')
+    });
 }
